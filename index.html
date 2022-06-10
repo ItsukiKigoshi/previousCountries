@@ -10,17 +10,27 @@
 </head>
 <body>
     <div id="app">
-        <input v-model="currentPrefecture" placeholder="現在の県名">
+        <input v-model="currentPrefecture" placeholder="今の名前">
+        <nobr>都/府/県</nobr>
         <p>{{previousPrefecture}}</p>
+        <!--
+            <ul>        
+                <li v-for="item in previousPrefecture" :key="item.previous">    
+                    {{ item.previous }}
+                </li>
+            </ul>
+        -->  
+          
     </div>
     <script>
-        new Vue({
-            el:"#app",
+        new Vue({ el:"#app",
             data:{
                 currentPrefecture:""
             },
             computed:{
+                
                 previousPrefecture:function(){
+                    /*
                     const prefectureList=[
                         {previous:"伊賀",current:"三重県"},
                         {previous:"伊勢",current:"三重県"},
@@ -108,16 +118,69 @@
                         {previous:"大隅",current:"鹿児島県"},
                         {previous:"薩摩",current:"鹿児島県"}
                     ];
+                     var result = prefectureList.filter(function( value ) {
+                        return value==this.currentPrefecture;
+                    });
+                    */
+                    const prefectureList=[
+                    {current:"青森",previous:"陸奥・陸奥"},
+                    {current:"岩手",previous:"陸奥・陸中"},
+                    {current:"宮城",previous:"陸奥・陸前"},
+                    {current:"福島",previous:"陸奥・磐城・岩代"},
+                    {current:"秋田",previous:"出羽・羽後"},
+                    {current:"山形",previous:"出羽・羽前"},
+                    {current:"栃木",previous:"下野"},
+                    {current:"群馬",previous:"上野"},
+                    {current:"千葉",previous:"安房・上総・下総"},
+                    {current:"茨城",previous:"下総・常陸"},
+                    {current:"埼玉",previous:"武蔵"},
+                    {current:"東京",previous:"武蔵"},
+                    {current:"神奈川",previous:"相模"},
+                    {current:"静岡",previous:"駿河・伊豆・遠江"},
+                    {current:"愛知",previous:"尾張・三河"},
+                    {current:"岐阜",previous:"美濃・飛騨"},
+                    {current:"長野",previous:"信濃"},
+                    {current:"山梨",previous:"甲斐"},
+                    {current:"新潟",previous:"越後・佐渡"},
+                    {current:"富山",previous:"越中"},
+                    {current:"石川",previous:"加賀・能登"},
+                    {current:"福井",previous:"越前・若狭"},
+                    {current:"滋賀",previous:"近江"},
+                    {current:"京都",previous:"山城・丹後"},
+                    {current:"兵庫",previous:"丹波・但馬・播磨・淡路・摂津"},
+                    {current:"大阪",previous:"摂津・和泉・河内"},
+                    {current:"奈良",previous:"大和"},
+                    {current:"和歌山",previous:"紀伊"},
+                    {current:"三重",previous:"伊勢・伊賀・志摩"},
+                    {current:"徳島",previous:"阿波"},
+                    {current:"香川",previous:"讃岐"},
+                    {current:"高知",previous:"土佐"},
+                    {current:"愛媛",previous:"伊予"},
+                    {current:"岡山",previous:"備前・美作・備中"},
+                    {current:"広島",previous:"備後・安芸"},
+                    {current:"島根",previous:"出雲・石見・隠岐"},
+                    {current:"鳥取",previous:"因幡・伯耆"},
+                    {current:"山口",previous:"周防・長門"},
+                    {current:"福岡",previous:"筑前・筑後・豊前"},
+                    {current:"佐賀",previous:"肥前"},
+                    {current:"長崎",previous:"壱岐・対馬"},
+                    {current:"大分",previous:"豊後"},
+                    {current:"宮崎",previous:"日向"},
+                    {current:"熊本",previous:"肥後"},
+                    {current:"鹿児島",previous:"薩摩・大隅"},
+                    {current:"沖縄",previous:"琉球"}
+                    ];
                     const result = prefectureList.find((v) => v.current === this.currentPrefecture);
                     if (result === undefined) {
                         return "ここに結果が表示されます";
                     }else{
                         return result.previous;
                     };
-                    
                 }
             }
         })
+           
+       
     </script>
 </body>
 </html>
