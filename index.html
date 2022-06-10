@@ -1,0 +1,123 @@
+<!--県名を入れたら旧国名が出てくるよね-->
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旧国名</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-model="currentPrefecture" placeholder="現在の県名">
+        <p>{{previousPrefecture}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                currentPrefecture:""
+            },
+            computed:{
+                previousPrefecture:function(){
+                    const prefectureList=[
+                        {previous:"伊賀",current:"三重県"},
+                        {previous:"伊勢",current:"三重県"},
+                        {previous:"志摩",current:"三重県"},
+                        {previous:"丹後",current:"京都府"},
+                        {previous:"山城",current:"京都府"},
+                        {previous:"丹波",current:"京都府"},
+                        {previous:"丹波",current:"兵庫県"},
+                        {previous:"肥前",current:"佐賀県"},
+                        {previous:"肥前",current:"長崎県"},
+                        {previous:"淡路",current:"兵庫県"},
+                        {previous:"但馬",current:"兵庫県"},
+                        {previous:"播磨",current:"兵庫県"},
+                        {previous:"安房",current:"千葉県"},
+                        {previous:"上総",current:"千葉県"},
+                        {previous:"下総",current:"千葉県"},
+                        {previous:"下総",current:"茨城県"},
+                        {previous:"下総",current:"埼玉県"},
+                        {previous:"下総",current:"東京都"},
+                        {previous:"紀伊",current:"和歌山県"},
+                        {previous:"紀伊",current:"三重県"},
+                        {previous:"武蔵",current:"埼玉県"},
+                        {previous:"武蔵",current:"東京都"},
+                        {previous:"武蔵",current:"神奈川県"},
+                        {previous:"豊後",current:"大分県"},
+                        {previous:"和泉",current:"大阪府"},
+                        {previous:"河内",current:"大阪府"},
+                        {previous:"摂津",current:"大阪府"},
+                        {previous:"摂津",current:"兵庫県"},
+                        {previous:"大和",current:"奈良県"},
+                        {previous:"日向",current:"宮崎県"},
+                        {previous:"越中",current:"富山県"},
+                        {previous:"周防",current:"山口県"},
+                        {previous:"長門",current:"山口県"},
+                        {previous:"出羽",current:"山形県"},
+                        {previous:"出羽",current:"秋田県"},
+                        {previous:"甲斐",current:"山梨県"},
+                        {previous:"飛騨",current:"岐阜県"},
+                        {previous:"美濃",current:"岐阜県"},
+                        {previous:"備前",current:"岡山県"},
+                        {previous:"備中",current:"岡山県"},
+                        {previous:"美作",current:"岡山県"},
+                        {previous:"出雲",current:"島根県"},
+                        {previous:"石見",current:"島根県"},
+                        {previous:"隠岐",current:"島根県"},
+                        {previous:"安芸",current:"広島県"},
+                        {previous:"備後",current:"広島県"},
+                        {previous:"阿波",current:"徳島県"},
+                        {previous:"伊予",current:"愛媛県"},
+                        {previous:"尾張",current:"愛知県"},
+                        {previous:"三河",current:"愛知県"},
+                        {previous:"越後",current:"新潟県"},
+                        {previous:"佐渡",current:"新潟県"},
+                        {previous:"下野",current:"栃木県"},
+                        {previous:"琉球",current:"沖縄県"},
+                        {previous:"近江",current:"滋賀県"},
+                        {previous:"肥後",current:"熊本県"},
+                        {previous:"加賀",current:"石川県"},
+                        {previous:"能登",current:"石川県"},
+                        {previous:"相模",current:"神奈川県"},
+                        {previous:"越前",current:"福井県"},
+                        {previous:"若狭",current:"福井県"},
+                        {previous:"筑後",current:"福岡県"},
+                        {previous:"筑前",current:"福岡県"},
+                        {previous:"豊前",current:"福岡県"},
+                        {previous:"豊前",current:"大分県"},
+                        {previous:"上野",current:"群馬県"},
+                        {previous:"常陸",current:"茨城県"},
+                        {previous:"壱岐",current:"長崎県"},
+                        {previous:"対馬",current:"長崎県"},
+                        {previous:"信濃",current:"長野県"},
+                        {previous:"陸奥",current:"青森県"},
+                        {previous:"陸奥",current:"岩手県"},
+                        {previous:"陸奥",current:"宮城県"},
+                        {previous:"陸奥",current:"福島県"},
+                        {previous:"陸奥",current:"秋田県"},
+                        {previous:"駿河",current:"静岡県"},
+                        {previous:"遠江",current:"静岡県"},
+                        {previous:"伊豆",current:"静岡県"},
+                        {previous:"伊豆",current:"東京都"},
+                        {previous:"讃岐",current:"香川県"},
+                        {previous:"土佐",current:"高知県"},
+                        {previous:"因幡",current:"鳥取県"},
+                        {previous:"伯耆",current:"鳥取県"},
+                        {previous:"大隅",current:"鹿児島県"},
+                        {previous:"薩摩",current:"鹿児島県"}
+                    ];
+                    const result = prefectureList.find((v) => v.current === this.currentPrefecture);
+                    if (result === undefined) {
+                        return "ここに結果が表示されます";
+                    }else{
+                        return result.previous;
+                    };
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
